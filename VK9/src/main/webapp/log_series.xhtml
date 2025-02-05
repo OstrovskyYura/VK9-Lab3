@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Обчислення ряду ln(1 - x)</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="x" value="x:"/>
+            <h:inputText id="x" value="#{logSeriesBean.x}" />
+
+            <h:outputLabel for="n" value="n:"/>
+            <h:inputText id="n" value="#{logSeriesBean.n}" />
+
+            <h:outputLabel for="e" value="e:"/>
+            <h:inputText id="e" value="#{logSeriesBean.e}" />
+
+            <h:outputLabel for="e2" value="e2:"/>
+            <h:inputText id="e2" value="#{logSeriesBean.e2}" />
+        </h:panelGrid>
+
+        <h:commandButton value="Обчислити" action="#{logSeriesBean.calculateSeries}" />
+
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Сума n доданків:" />
+            <h:outputText value="#{logSeriesBean.sumN}" />
+
+            <h:outputLabel value="Сума доданків більше e:" />
+            <h:outputText value="#{logSeriesBean.sumFilteredE} (#{logSeriesBean.countE} шт.)" />
+
+            <h:outputLabel value="Сума доданків більше e2:" />
+            <h:outputText value="#{logSeriesBean.sumFilteredE2} (#{logSeriesBean.countE2} шт.)" />
+
+            <h:outputLabel value="Точне значення ln(1 - x):" />
+            <h:outputText value="#{logSeriesBean.exactValue}" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
